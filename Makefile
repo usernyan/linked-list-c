@@ -1,14 +1,15 @@
 CC = gcc
 
 test: test.o linked.o
-	${CC} test.o linked.o -o test
+	${CC} -g test.o linked.o -o test
 
 
+#make this dependent on linked.h?
 test.o: test.c
-	${CC} -c test.c
+	${CC} -g -c test.c
 
 linked.o: linked.c
-	${CC} -c linked.c
+	${CC} -g -c linked.c
 
 # We could compile this way, also.
 # test: test.c linked.c linked.h
