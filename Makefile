@@ -15,5 +15,8 @@ linked.o: linked.c
 # test-driver: test-driver.c linked.c linked.h
 # 	${CC} test-driver.c linked.c -o test-driver
 
+mem-test: test-driver
+	valgrind ./test-driver
+
 clean:
 	rm -f -- *.o test-driver
