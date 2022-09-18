@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
 	}
 	print_list(my_list, &print_int);
 	clear_list(my_list, &free_int);
+	dealloc_nodes(my_list);
 	return 0;
 }
 
