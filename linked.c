@@ -12,8 +12,6 @@ struct link_node {
 };
 
 
-struct link_node *new_list(int len, void (*initializer)(void **)) {
-}
 
 struct link_node *alloc_nodes(int len) {
 	struct link_node *head;
@@ -60,6 +58,12 @@ void dealloc_nodes(struct link_node *head) {
 		cur_node = temp->next;
 		free(temp);
 	} while (cur_node);
+}
+
+struct link_node *new_list(int len, void (*initializer)(void **)) {
+	struct link_node *head = alloc_nodes(len);
+	init_list(head, initializer);
+	return head;
 }
 
 void del_list(struct link_node *head, void(*deinitializer)(void **)) {
