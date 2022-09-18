@@ -23,8 +23,9 @@ int main(int argc, char *argv[]) {
 	clear_list(my_list, &free_int);
 	dealloc_nodes(my_list);
 
-	my_list = alloc_nodes(l);
-	init_list(my_list, &init_int);
+	my_list = new_list(l, &init_int);
+	int_list_tester(my_list);
+	print_list(my_list, &print_int);
 	del_list(my_list, &free_int);
 	return 0;
 }
