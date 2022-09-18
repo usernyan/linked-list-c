@@ -18,5 +18,6 @@ struct link_node *new_list(int len, void (*initializer)(void **));
 void del_list(struct link_node *head, void(*deinitializer)(void **));
 
 void print_list(struct link_node *head, void (*printer)(void *));
+void print_list_fancy(struct link_node *head, void (*printer)(void *), char *delim, char *begin, char *end);
 
 #endif

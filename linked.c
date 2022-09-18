@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 //for testing
 char *getfoo() {
@@ -77,4 +78,16 @@ void print_list(struct link_node *head, void (*printer)(void *)) {
 		(*printer)(t->data);
 		t = t->next;
 	}
+}
+
+void print_list_fancy(struct link_node *head, void (*printer)(void *), char *delim, char *begin, char *end) {
+	fputs(begin, stdout);
+	struct link_node *t = head;
+	while (t) {
+		(*printer)(t->data);
+		if (t->next)
+			fputs(delim, stdout);
+		t = t->next;
+	}
+	fputs(end, stdout);
 }
