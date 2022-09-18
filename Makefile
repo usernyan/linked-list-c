@@ -5,7 +5,7 @@ test: test.o linked.o
 
 
 #make this dependent on linked.h?
-test.o: test.c
+test.o: test.c linked.h
 	${CC} -g -c test.c
 
 linked.o: linked.c
