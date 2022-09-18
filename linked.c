@@ -12,7 +12,10 @@ struct link_node {
 };
 
 
-struct link_node *new_list(int len) {
+struct link_node *new_list(int len, void (*initializer)(void **)) {
+}
+
+struct link_node *alloc_nodes(int len) {
 	struct link_node *head;
 	if (len > 0)
 	{

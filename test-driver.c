@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 	printf("Hello, test.\n");
 	printf(getfoo()); //Testing #include "linked.h"
 	int l = 5;
-	struct link_node *my_list = new_list(l);
+	struct link_node *my_list = alloc_nodes(l);
 	init_list(my_list, &init_int);
 	print_list(my_list, &print_int);
 	int_list_tester(my_list);
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 	clear_list(my_list, &free_int);
 	dealloc_nodes(my_list);
 
-	my_list = new_list(l);
+	my_list = alloc_nodes(l);
 	init_list(my_list, &init_int);
 	del_list(my_list, &free_int);
 	return 0;

@@ -8,7 +8,7 @@ struct link_node {
 	void *data;
 };
 
-struct link_node *new_list(int len);
+struct link_node *alloc_nodes(int len);
 void init_list(struct link_node *head, void (*initializer)(void **));
 void clear_list(struct link_node *head, void (*deinitializer)(void **));
 void dealloc_nodes(struct link_node *head);
