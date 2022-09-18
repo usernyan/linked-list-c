@@ -31,13 +31,20 @@ struct link_node *new_list(int len) {
 	return head;
 }
 
-
-void init_list(struct link_node *head, void (*initializer)(void **)) {
+void __for_each_data_ptr(struct link_node *head, void (*func)(void **)) {
 	struct link_node *t = head;
 	while (t) {
-		(*initializer)(&t->data);
+		(*func)(&t->data);
 		t = t->next;
 	}
+}
+
+void init_list(struct link_node *head, void (*initializer)(void **)) {
+	__for_each_data_ptr(head, initializer);
+}
+
+void clear_list(struct link_node *head, void (*deinitializer)(void **)) {
+	__for_each_data_ptr(head, deinitializer);
 }
 
 void print_list(struct link_node *head, void (*printer)(void *)) {

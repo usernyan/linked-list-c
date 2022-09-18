@@ -4,6 +4,7 @@
 
 void init_int(void **to_data);
 void print_int(void *data);
+void free_int(void **to_data);
 
 int main(int argc, char *argv[]) {
 	printf("Hello, test.\n");
@@ -20,12 +21,18 @@ int main(int argc, char *argv[]) {
 		i++;
 	}
 	print_list(my_list, &print_int);
+	clear_list(my_list, &free_int);
 	return 0;
 }
 
 void init_int(void **to_data) {
 	*to_data = malloc(sizeof(int));
 	*(int *)*to_data = 0;
+}
+
+void free_int(void **to_data) {
+	free(*to_data);
+	*to_data = NULL;
 }
 
 void print_int(void *data) {

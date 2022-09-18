@@ -10,6 +10,7 @@ struct link_node {
 
 struct link_node *new_list(int len);
 void init_list(struct link_node *head, void (*initializer)(void **));
+void clear_list(struct link_node *head, void (*deinitializer)(void **));
 void print_list(struct link_node *head, void (*printer)(void *));
 
 #endif
