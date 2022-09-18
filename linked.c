@@ -1,6 +1,6 @@
 
 //for testing
 char *getfoo() {
-	char *foo = "bar";
+	char *foo = "bar\n";
 	return foo;
 }
