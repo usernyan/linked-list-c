@@ -39,3 +39,11 @@ void init_list(struct link_node *head, void (*initializer)(void **)) {
 		t = t->next;
 	}
 }
+
+void print_list(struct link_node *head, void (*printer)(void *)) {
+	struct link_node *t = head;
+	while (t) {
+		(*printer)(t->data);
+		t = t->next;
+	}
+}
