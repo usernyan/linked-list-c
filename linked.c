@@ -47,6 +47,18 @@ void clear_list(struct link_node *head, void (*deinitializer)(void **)) {
 	__for_each_data_ptr(head, deinitializer);
 }
 
+void dealloc_nodes(struct link_node *head) {
+	if (!head)
+		return;
+	struct link_node *cur_node = head;
+	struct link_node *temp;
+	do {
+		temp = cur_node;
+		cur_node = temp->next;
+		free(temp);
+	} while (cur_node);
+}
+
 void print_list(struct link_node *head, void (*printer)(void *)) {
 	struct link_node *t = head;
 	while (t) {
