@@ -59,6 +59,11 @@ void dealloc_nodes(struct link_node *head) {
 	} while (cur_node);
 }
 
+void del_list(struct link_node *head, void(*deinitializer)(void **)) {
+	clear_list(head, deinitializer);
+	dealloc_nodes(head);
+}
+
 void print_list(struct link_node *head, void (*printer)(void *)) {
 	struct link_node *t = head;
 	while (t) {
