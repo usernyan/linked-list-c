@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "linked.h"
 
-//these functions are passes as pointers to the library
+//these functions are passed as pointers to the library
 void init_int(void **to_data);
 void print_int(void *data);
 void free_int(void **to_data);
