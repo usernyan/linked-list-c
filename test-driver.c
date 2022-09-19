@@ -10,10 +10,8 @@ void free_int(void **to_data);
 //these are just helper functions for testing.
 void int_list_tester(struct link_node *list_head);
 
-
 int main(int argc, char *argv[]) {
 	printf("Hello, test.\n");
-	printf(getfoo()); //Testing #include "linked.h"
 	int l = 5;
 	struct link_node *my_list = alloc_nodes(l);
 	init_list(my_list, &init_int);

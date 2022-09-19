@@ -1,18 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//for testing
-char *getfoo() {
-	char *foo = "bar\n";
-	return foo;
-}
-
 struct link_node {
 	struct link_node *next;
 	void *data;
 };
-
-
 
 struct link_node *alloc_nodes(int len) {
 	struct link_node *head;
