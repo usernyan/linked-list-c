@@ -9,6 +9,7 @@ void free_int(void **to_data);
 
 //these are just helper functions for testing.
 void int_list_tester(struct link_node *list_head);
+int *new_int(int val);
 
 int main(int argc, char *argv[]) {
 	printf("Hello, test.\n");
@@ -29,6 +30,16 @@ int main(int argc, char *argv[]) {
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
 	del_list(my_list, &free_int);
 
+	puts("list insertion");
+	my_list = new_list(0, &init_int);
+	//val, idx, val, idx, ...
+	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
+	for (int i = 1; i < 5; i++) {
+		my_list = append(my_list, new_int(i));
+		print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
+	}
+	del_list(my_list, &free_int);
+
 	return 0;
 }
 
@@ -40,6 +51,12 @@ void int_list_tester(struct link_node *list_head) {
 		cur_node = cur_node->next;
 		i++;
 	}
+}
+
+int *new_int(int val) {
+	int *m = malloc(sizeof(int));
+	*m = val;
+	return m;
 }
 
 void init_int(void **to_data) {
