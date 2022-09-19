@@ -11,7 +11,7 @@ struct link_node {
  */
 
 struct link_node *alloc_nodes(int len) {
-	struct link_node *head;
+	struct link_node *head = NULL;
 	if (len > 0)
 	{
 		head = malloc(sizeof(struct link_node));
