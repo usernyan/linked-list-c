@@ -13,6 +13,8 @@ void int_list_tester(struct link_node *list_head);
 int main(int argc, char *argv[]) {
 	printf("Hello, test.\n");
 	int l = 5;
+
+	puts("creating and deleting a list:");
 	struct link_node *my_list = alloc_nodes(l);
 	init_list(my_list, &init_int);
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
@@ -21,10 +23,12 @@ int main(int argc, char *argv[]) {
 	clear_list(my_list, &free_int);
 	dealloc_nodes(my_list);
 
+	puts("creating and deleting a list:");
 	my_list = new_list(l, &init_int);
 	int_list_tester(my_list);
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
 	del_list(my_list, &free_int);
+
 	return 0;
 }
 
