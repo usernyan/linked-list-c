@@ -117,3 +117,14 @@ struct link_node *append(struct link_node *head, void *data) {
 		return head;
 
 }
+
+/*
+ * Insert at the start of the list,
+ * returning the head of the list after the operation.
+ */
+struct link_node *insert_first(struct link_node *head, void *data) {
+	struct link_node *new_node = malloc(sizeof(struct link_node));
+	new_node->next = head;
+	new_node->data = data;
+	return new_node;
+}
