@@ -34,11 +34,20 @@ int main(int argc, char *argv[]) {
 	my_list = new_list(0, &init_int);
 	//val, idx, val, idx, ...
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
-	for (int i = 1; i < 5; i++) {
+	for (int i = 0; i < 3; i++) {
 		my_list = append(my_list, new_int(i));
 		print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
 	}
+	for (int i = 4; i < 7; i++) {
+		my_list = insert_first(my_list, new_int(i));
+		print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
+	}
 	del_list(my_list, &free_int);
+	puts("insert_first on NULL head");
+	print_list_fancy(NULL, &print_int, ", ", "[ ", " ]\n");
+	struct link_node *temp = insert_first(NULL, new_int(40));
+	print_list_fancy(temp, &print_int, ", ", "[ ", " ]\n");
+	del_list(temp, &free_int);
 
 	return 0;
 }
