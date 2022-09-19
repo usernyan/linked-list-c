@@ -6,6 +6,10 @@ struct link_node {
 	void *data;
 };
 
+/*
+ * list creation and deletion functions
+ */
+
 struct link_node *alloc_nodes(int len) {
 	struct link_node *head;
 	if (len > 0)
@@ -64,6 +68,9 @@ void del_list(struct link_node *head, void(*deinitializer)(void **)) {
 	dealloc_nodes(head);
 }
 
+/*
+ * list printing functions
+ */
 void print_list(struct link_node *head, void (*printer)(void *)) {
 	struct link_node *t = head;
 	while (t) {
