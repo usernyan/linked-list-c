@@ -90,3 +90,30 @@ void print_list_fancy(struct link_node *head, void (*printer)(void *), char *del
 	}
 	fputs(end, stdout);
 }
+
+/*
+ * Insertion
+ */
+
+/*
+ * Append to the end of the list,
+ * returning the head of the list after the operation.
+ * The head only changes if it is NULL.
+ */
+struct link_node *append(struct link_node *head, void *data) {
+	struct link_node *temp = head;
+	struct link_node *last_node = NULL;
+	while (temp) {
+		last_node = temp;
+		temp = temp->next;
+	}
+	struct link_node *new_node = malloc(sizeof(struct link_node));
+	new_node->data = data;
+	new_node->next = NULL;
+	if (head == NULL)
+		return new_node;
+	else
+		last_node->next = new_node;
+		return head;
+
+}
