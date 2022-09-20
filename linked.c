@@ -41,29 +41,29 @@ void dealloc_nodes(struct link_node *head) {
 	} while (cur_node);
 }
 
-void __for_each_data_ptr(struct link_node *head, void (*func)(void **)) {
+void init_list(struct link_node *head, void *(*initializer)()) {
 	struct link_node *t = head;
 	while (t) {
-		(*func)(&t->data);
+		t->data = (*initializer)();
 		t = t->next;
 	}
 }
 
-void init_list(struct link_node *head, void (*initializer)(void **)) {
-	__for_each_data_ptr(head, initializer);
+void clear_list(struct link_node *head, void (*deinitializer)(void *)) {
+	struct link_node *t = head;
+	while (t) {
+		(*deinitializer)(t->data);
+		t = t->next;
+	}
 }
 
-void clear_list(struct link_node *head, void (*deinitializer)(void **)) {
-	__for_each_data_ptr(head, deinitializer);
-}
-
-struct link_node *new_list(int len, void (*initializer)(void **)) {
+struct link_node *new_list(int len, void *(*initializer)()) {
 	struct link_node *head = alloc_nodes(len);
 	init_list(head, initializer);
 	return head;
 }
 
-void del_list(struct link_node *head, void(*deinitializer)(void **)) {
+void del_list(struct link_node *head, void (*deinitializer)(void *)) {
 	clear_list(head, deinitializer);
 	dealloc_nodes(head);
 }
