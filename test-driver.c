@@ -3,9 +3,8 @@
 #include "linked.h"
 
 //these functions are passed as pointers to the library
-void init_int(void **to_data);
+void *init_int(void *to_data);
 void print_int(void *data);
-void free_int(void **to_data);
 
 //these are just helper functions for testing.
 void int_list_tester(struct link_node *list_head);
@@ -21,14 +20,14 @@ int main(int argc, char *argv[]) {
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
 	int_list_tester(my_list);
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
-	clear_list(my_list, &free_int);
+	clear_list(my_list, &free);
 	dealloc_nodes(my_list);
 
 	puts("creating and deleting a list:");
 	my_list = new_list(l, &init_int);
 	int_list_tester(my_list);
 	print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
-	del_list(my_list, &free_int);
+	del_list(my_list, &free);
 
 	puts("list insertion");
 	my_list = new_list(0, &init_int);
@@ -42,12 +41,12 @@ int main(int argc, char *argv[]) {
 		my_list = insert_first(my_list, new_int(i));
 		print_list_fancy(my_list, &print_int, ", ", "[ ", " ]\n");
 	}
-	del_list(my_list, &free_int);
+	del_list(my_list, &free);
 	puts("insert_first on NULL head");
 	print_list_fancy(NULL, &print_int, ", ", "[ ", " ]\n");
 	struct link_node *temp = insert_first(NULL, new_int(40));
 	print_list_fancy(temp, &print_int, ", ", "[ ", " ]\n");
-	del_list(temp, &free_int);
+	del_list(temp, &free);
 
 	return 0;
 }
@@ -68,14 +67,10 @@ int *new_int(int val) {
 	return m;
 }
 
-void init_int(void **to_data) {
-	*to_data = malloc(sizeof(int));
-	*(int *)*to_data = 0;
-}
-
-void free_int(void **to_data) {
-	free(*to_data);
-	*to_data = NULL;
+void *init_int(void *to_data) {
+	int *i = malloc(sizeof(int));
+	*i = 0;
+	return i;
 }
 
 void print_int(void *data) {
