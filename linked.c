@@ -1,10 +1,6 @@
+#include "linked.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-struct link_node {
-	struct link_node *next;
-	void *data;
-};
 
 /*
  * list creation and deletion functions
