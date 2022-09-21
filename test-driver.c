@@ -30,25 +30,37 @@ int main(int argc, char *argv[]) {
 	my_print(my_list);
 	del_list(my_list, &free);
 
-	puts("list insertion");
 	my_list = new_list(0, &init_int);
-	//val, idx, val, idx, ...
+	puts("insert_first");
 	my_print(my_list);
-	for (int i = 0; i < 3; i++) {
-		my_list = append(my_list, new_int(i));
-		my_print(my_list);
-	}
-	for (int i = 4; i < 7; i++) {
+	for(int i = 0; i < 4; i++) {
 		my_list = insert_first(my_list, new_int(i));
 		my_print(my_list);
 	}
-	del_list(my_list, &free);
-	puts("insert_first on NULL head");
-	my_print(NULL);
-	struct link_node *temp = insert_first(NULL, new_int(40));
-	my_print(temp);
-	del_list(temp, &free);
 
+	//delete_last
+	puts("delete_last");
+	for(int i = 0; i < 5; i++) {
+		my_list = delete_last(my_list, &free); 
+		my_print(my_list);
+	}
+
+	//append
+	puts("append");
+	for(int i = 0; i < 4; i++) {
+		my_list = append(my_list, new_int(i));
+		my_print(my_list);
+	}
+
+	//delete_first
+	puts("delete_first");
+	my_print(my_list);
+	for(int i = 0; i < 5; i++) {
+		my_list = delete_first(my_list, &free);
+		my_print(my_list);
+	}
+
+	del_list(my_list, &free);
 	return 0;
 }
 
