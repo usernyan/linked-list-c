@@ -129,6 +129,8 @@ struct link_node *insert_first(struct link_node *head, void *data) {
  */
 
 /*
+ * delete the last node of the list
+ * return the new head of the list
  */
 struct link_node *delete_first(struct link_node *head, void (*deinitializer)(void *data)) {
 	struct link_node *new_head = NULL;
@@ -141,6 +143,8 @@ struct link_node *delete_first(struct link_node *head, void (*deinitializer)(voi
 }
 
 /*
+ * delete the first node of the list
+ * return the new head of the list
  */
 
 struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void *data)) {
