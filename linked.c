@@ -92,9 +92,8 @@ void print_list_fancy(struct link_node *head, void (*printer)(void *), char *del
  */
 
 /*
- * Append to the end of the list,
- * returning the head of the list after the operation.
- * The head only changes if it is NULL.
+ * append to the end of the list
+ * return the new head of the list
  */
 struct link_node *append(struct link_node *head, void *data) {
 	struct link_node *new_node = malloc(sizeof(struct link_node));
@@ -114,8 +113,8 @@ struct link_node *append(struct link_node *head, void *data) {
 }
 
 /*
- * Insert at the start of the list,
- * returning the head of the list after the operation.
+ * insert data at the start of the list
+ * return the new head of the list
  */
 struct link_node *insert_first(struct link_node *head, void *data) {
 	struct link_node *new_node = malloc(sizeof(struct link_node));
