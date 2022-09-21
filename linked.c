@@ -123,3 +123,41 @@ struct link_node *insert_first(struct link_node *head, void *data) {
 	new_node->data = data;
 	return new_node;
 }
+
+/*
+ * Deletion
+ */
+
+/*
+ */
+struct link_node *delete_first(struct link_node *head, void (*deinitializer)(void *data)) {
+	struct link_node *new_head = NULL;
+	if (head) {
+		new_head = head->next;
+		(*deinitializer)(head->data);
+		free(head);
+	}
+	return new_head;
+}
+
+/*
+ */
+
+struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void *data)) {
+	struct link_node *last = head;
+	struct link_node *second_to_last = NULL;
+	if (head) {
+		while (last->next) {
+			second_to_last = last;
+			last = last->next;
+		}
+		(*deinitializer)(last->data);
+		free(last);
+		if (second_to_last)
+			second_to_last->next = NULL;
+		else
+			head = NULL;
+
+	}
+	return head;
+}

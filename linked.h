@@ -21,4 +21,8 @@ void print_list_fancy(struct link_node *head, void (*printer)(void *), char *del
 struct link_node *append(struct link_node *head, void *data);
 struct link_node *insert_first(struct link_node *head, void *data);
 
+
+struct link_node *delete_first(struct link_node *head, void (*deinitializer)(void *data));
+struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void *data));
+
 #endif
