@@ -1,6 +1,7 @@
 #include "linked.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 /*
  * list creation and deletion functions
@@ -163,4 +164,21 @@ struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void
 
 	}
 	return head;
+}
+
+/*
+ */
+
+/*
+ * find the first node that contains data equal to the target
+ * returns NULL if the node cannot be found
+ * the eq function should return true if the two pointers are equal, false otherwise
+ */
+
+struct link_node *linear_find(struct link_node *head, void *target, bool (*eq)(void *data1, void *data2)) {
+	struct link_node *cur_node = head;
+	while (cur_node && !eq(cur_node->data, target)) {
+		cur_node = cur_node->next;
+	}
+	return cur_node;
 }
