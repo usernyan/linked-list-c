@@ -5,6 +5,7 @@
 //these functions are passed as pointers to the library
 void *init_int(void *to_data);
 void print_int(void *data);
+bool int_eq(void *data1, void *data2);
 
 //these are just helper functions for testing.
 void int_list_tester(struct link_node *list_head);
@@ -36,6 +37,21 @@ int main(int argc, char *argv[]) {
 	for(int i = 0; i < 4; i++) {
 		my_list = insert_first(my_list, new_int(i));
 		my_print(my_list);
+	}
+
+	//linear find
+	puts("linear find");
+	struct link_node *found = NULL;
+	for(int i = 0; i < 5; i++) {
+		found = linear_find(my_list, &i, &int_eq);
+		if (found) {
+			printf("found:");
+			print_int(found->data);
+			printf("\n");
+		}
+		else {
+			puts("not found");
+		}
 	}
 
 	//delete_last
@@ -72,6 +88,10 @@ void int_list_tester(struct link_node *list_head) {
 		cur_node = cur_node->next;
 		i++;
 	}
+}
+
+bool int_eq(void *data1, void *data2) {
+	return *(int *)data1 == *(int *)data2;
 }
 
 int *new_int(int val) {
