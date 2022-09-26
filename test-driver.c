@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
 	//linear find
 	puts("linear find");
 	struct link_node *found = NULL;
-	for(int i = 0; i < 5; i++) {
+	for(int i = -1; i < 5; i++) {
 		found = linear_find(my_list, &i, &int_eq);
 		if (found) {
 			printf("found:");
@@ -50,7 +50,9 @@ int main(int argc, char *argv[]) {
 			printf("\n");
 		}
 		else {
-			puts("not found");
+			printf("not found:");
+			print_int(&i);
+			printf("\n");
 		}
 	}
 
