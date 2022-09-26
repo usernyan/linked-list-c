@@ -8,7 +8,7 @@ test-driver: test-driver.o linked.o
 test-driver.o: test-driver.c linked.h
 	${CC} -g -c test-driver.c
 
-linked.o: linked.c
+linked.o: linked.c linked.h
 	${CC} -g -c linked.c
 
 # We could compile this way, also.
