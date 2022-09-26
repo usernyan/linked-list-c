@@ -1,9 +1,0 @@
-The goal of this project is to create a generic and small linked list library in c.
-
-The struct for nodes of the list will be:
-- a pointer to the next node
-- a void pointer to the data
-
-The functions that operate on the linked list will be passed function pointers to call with the data pointer as an argument.
-For example, for a linked list that holds ints, the delete function will take the index of the node to delete and also a function that simply free()'s the data pointer.
-The user of the library can implement more complex behavior in said function(s) if it's needed.
