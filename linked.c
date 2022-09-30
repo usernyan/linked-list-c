@@ -172,7 +172,7 @@ struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void
 /*
  * find the first node that contains data equal to the target
  * returns NULL if the node cannot be found
- * the eq function should return true if the two pointers are equal, false otherwise
+ * the eq function should return true if the two pointers point to equal data, false otherwise
  */
 
 struct link_node *linear_find(struct link_node *head, void *target, bool (*eq)(void *data1, void *data2)) {
