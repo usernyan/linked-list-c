@@ -39,8 +39,7 @@ int main(int argc, char *argv[]) {
 		my_print(my_list);
 	}
 
-	//linear find
-	puts("linear find");
+	puts("linear_find");
 	struct link_node *found = NULL;
 	for(int i = -1; i < 5; i++) {
 		found = linear_find(my_list, &i, &int_eq);
@@ -56,21 +55,18 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	//delete_last
 	puts("delete_last");
 	for(int i = 0; i < 5; i++) {
 		my_list = delete_last(my_list, &free); 
 		my_print(my_list);
 	}
 
-	//insert_last
 	puts("insert_last");
 	for(int i = 0; i < 4; i++) {
 		my_list = insert_last(my_list, new_int(i));
 		my_print(my_list);
 	}
 
-	//delete_first
 	puts("delete_first");
 	my_print(my_list);
 	for(int i = 0; i < 5; i++) {
