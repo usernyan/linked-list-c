@@ -93,10 +93,10 @@ void print_list_fancy(struct link_node *head, void (*printer)(void *), char *del
  */
 
 /*
- * append to the end of the list
+ * insert data at the end of the list
  * return the new head of the list
  */
-struct link_node *append(struct link_node *head, void *data) {
+struct link_node *insert_last(struct link_node *head, void *data) {
 	struct link_node *new_node = malloc(sizeof(struct link_node));
 	new_node->data = data;
 	new_node->next = NULL;

@@ -63,10 +63,10 @@ int main(int argc, char *argv[]) {
 		my_print(my_list);
 	}
 
-	//append
-	puts("append");
+	//insert_last
+	puts("insert_last");
 	for(int i = 0; i < 4; i++) {
-		my_list = append(my_list, new_int(i));
+		my_list = insert_last(my_list, new_int(i));
 		my_print(my_list);
 	}
 
