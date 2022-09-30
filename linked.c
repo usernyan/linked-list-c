@@ -68,6 +68,7 @@ void del_list(struct link_node *head, void (*deinitializer)(void *)) {
 /*
  * list printing functions
  */
+
 void print_list(struct link_node *head, void (*printer)(void *)) {
 	struct link_node *t = head;
 	while (t) {
@@ -96,6 +97,7 @@ void print_list_fancy(struct link_node *head, void (*printer)(void *), char *del
  * insert data at the end of the list
  * return the new head of the list
  */
+
 struct link_node *insert_last(struct link_node *head, void *data) {
 	struct link_node *new_node = malloc(sizeof(struct link_node));
 	new_node->data = data;
@@ -117,6 +119,7 @@ struct link_node *insert_last(struct link_node *head, void *data) {
  * insert data at the start of the list
  * return the new head of the list
  */
+
 struct link_node *insert_first(struct link_node *head, void *data) {
 	struct link_node *new_node = malloc(sizeof(struct link_node));
 	new_node->next = head;
@@ -132,6 +135,7 @@ struct link_node *insert_first(struct link_node *head, void *data) {
  * delete the last node of the list
  * return the new head of the list
  */
+
 struct link_node *delete_first(struct link_node *head, void (*deinitializer)(void *data)) {
 	struct link_node *new_head = NULL;
 	if (head) {
