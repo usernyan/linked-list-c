@@ -171,6 +171,72 @@ struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void
 }
 
 /*
+ * Retrieval
+ */
+
+void *get_data(struct link_node *n) {
+	void *data = NULL;
+	if (n)
+		data = n->data;
+	return data;
+}
+
+/*
+ * get the last node
+ */
+
+struct link_node *get_last_node(struct link_node *head) {
+	struct link_node *cur_node = head;
+	if (head) {
+		while (cur_node->next) {
+			cur_node = cur_node->next;
+		}
+	}
+	return cur_node;
+}
+
+/*
+ * get the node placed n nodes after the head
+ */
+
+struct link_node *get_nth_node(struct link_node *head, int n) {
+	if (n < 0)
+		return NULL;
+	struct link_node *cur_node = head;
+	int cur_idx = 0;
+	while(cur_node && cur_idx < n) {
+		cur_node = cur_node->next;
+		cur_idx++;
+	}
+	return cur_node;
+}
+
+/*
+ * get the data pointer belonging to the node placed n nodes after the head
+ */
+
+struct link_node *get_at(struct link_node *head, int n) {
+	return get_data(get_nth_node(head, n));
+}
+
+/*
+ * get the data pointer belonging to the last node
+ */
+
+void *get_last(struct link_node *head) {
+	struct link_node *l = get_last_node(head);
+	return get_data(l);
+}
+
+/*
+ * get the data pointer belonging to the first node
+ */
+
+void *get_first(struct link_node *head) {
+	return get_data(head);
+}
+
+/*
  */
 
 /*

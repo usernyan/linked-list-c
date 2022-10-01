@@ -26,6 +26,10 @@ struct link_node *insert_first(struct link_node *head, void *data);
 struct link_node *delete_first(struct link_node *head, void (*deinitializer)(void *data));
 struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void *data));
 
+struct link_node *get_at(struct link_node *head, int n);
+void *get_last(struct link_node *head);
+void *get_first(struct link_node *head);
+
 struct link_node *linear_find(struct link_node *head, void *target, bool (*eq)(void *data1, void *data2));
 
 #endif
