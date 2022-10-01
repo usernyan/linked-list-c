@@ -203,14 +203,14 @@ struct link_node *get_last_node(struct link_node *head) {
  * get the node placed n nodes after the head
  */
 
-struct link_node *get_nth_node(struct link_node *head, int n) {
-	if (n < 0)
+struct link_node *get_node_at(struct link_node *head, int idx) {
+	if (idx < 0)
 		return NULL;
 	struct link_node *cur_node = head;
-	int cur_idx = 0;
-	while(cur_node && cur_idx < n) {
+	int n = 0;
+	while(cur_node && n < idx) {
 		cur_node = cur_node->next;
-		cur_idx++;
+		n++;
 	}
 	return cur_node;
 }
@@ -220,7 +220,7 @@ struct link_node *get_nth_node(struct link_node *head, int n) {
  */
 
 struct link_node *get_at(struct link_node *head, int n) {
-	return get_data(get_nth_node(head, n));
+	return get_data(get_node_at(head, n));
 }
 
 /*
