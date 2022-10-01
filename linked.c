@@ -174,6 +174,10 @@ struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void
  * Retrieval
  */
 
+/*
+ * get the data pointer of a node, returns null if the pointer to the node is null
+ */
+
 void *get_data(struct link_node *n) {
 	void *data = NULL;
 	if (n)
