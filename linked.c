@@ -94,6 +94,24 @@ void print_list_fancy(struct link_node *head, void (*printer)(void *), char *del
  */
 
 /*
+ * insert the data in a new node placed idx nodes after the head
+ */
+struct link_node *insert_at(struct link_node *head, void *data, int idx) {
+	struct link_node *insert_after = get_node_at(head, idx-1);
+	struct link_node *new_node = malloc(sizeof(struct link_node));
+	new_node->data = data;
+	if (insert_after) {
+		new_node->next = insert_after->next;
+		insert_after->next = new_node;
+	}
+	else {
+		new_node->next = head;
+		head = new_node;
+	}
+	return head;
+}
+
+/*
  * insert data at the end of the list
  * return the new head of the list
  */

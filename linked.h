@@ -20,6 +20,7 @@ void del_list(struct link_node *head, void (*deinitializer)(void *));
 void print_list(struct link_node *head, void (*printer)(void *));
 void print_list_fancy(struct link_node *head, void (*printer)(void *), char *delim, char *begin, char *end);
 
+struct link_node *insert_at(struct link_node *head, void *data, int idx);
 struct link_node *insert_last(struct link_node *head, void *data);
 struct link_node *insert_first(struct link_node *head, void *data);
 
