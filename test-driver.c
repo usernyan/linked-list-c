@@ -70,6 +70,15 @@ int main(int argc, char *argv[]) {
 
 	retrieval_test(my_list, -1, 5);
 
+	puts("insert_at");
+	int arr[] = {0, 1, 2, 6, 8};
+	int arr_l = 5;
+	for (int i = 0; i < arr_l; i++) {
+		printf("%d:", arr[i]);
+		my_list = insert_at(my_list, new_int(i+5), arr[i]);
+		my_print(my_list);
+	}
+
 	puts("delete_first");
 	my_print(my_list);
 	for(int i = 0; i < 5; i++) {
