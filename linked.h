@@ -24,6 +24,7 @@ struct link_node *insert_at(struct link_node *head, void *data, int idx);
 struct link_node *insert_last(struct link_node *head, void *data);
 struct link_node *insert_first(struct link_node *head, void *data);
 
+struct link_node *delete_at(struct link_node *head, int idx, void (*deinitializer)(void *data));
 struct link_node *delete_first(struct link_node *head, void (*deinitializer)(void *data));
 struct link_node *delete_last(struct link_node *head, void (*deinitializer)(void *data));
 

@@ -149,6 +149,29 @@ struct link_node *insert_first(struct link_node *head, void *data) {
  * Deletion
  */
 
+struct link_node *delete_at(struct link_node *head, int idx, void (*deinitializer)(void *data)) {
+	if (!head)
+		return NULL;
+	struct link_node *to_delete = head;
+	struct link_node *del_after = NULL;
+	int n = 0;
+	while (to_delete->next && n < idx) {
+		del_after = to_delete;
+		to_delete = to_delete->next;
+		n++;
+	}
+	if (del_after) {
+		del_after->next = to_delete->next;
+	}
+	else {
+		head = to_delete->next;
+	}
+	(*deinitializer)(to_delete->data);
+	free(to_delete);
+	return head;
+
+}
+
 /*
  * delete the last node of the list
  * return the new head of the list
