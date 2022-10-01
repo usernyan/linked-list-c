@@ -200,7 +200,7 @@ struct link_node *get_last_node(struct link_node *head) {
 }
 
 /*
- * get the node placed n nodes after the head
+ * get the node placed idx nodes after the head
  */
 
 struct link_node *get_node_at(struct link_node *head, int idx) {
