@@ -79,10 +79,34 @@ int main(int argc, char *argv[]) {
 		my_print(my_list);
 	}
 
+	puts("delete_at");
+	for (int i = 0; i < arr_l; i++) {
+		printf("%d:", arr[i]);
+		my_list = delete_at(my_list, arr[i], &free);
+		my_print(my_list);
+	}
+
 	puts("delete_first");
 	my_print(my_list);
 	for(int i = 0; i < 5; i++) {
 		my_list = delete_first(my_list, &free);
+		my_print(my_list);
+	}
+
+	int arr2[] = {200, -20, 1, 0, -20};
+	int arr2_l = 4;
+	puts("insert_at from null");
+	for (int i = 0; i < arr2_l; i++)
+	{
+		printf("%d:", arr2[i]);
+		my_list = insert_at(my_list, new_int(i), arr2[i]);
+		my_print(my_list);
+	}
+	puts("delete_at to null");
+	for (int i = 0; i < arr2_l + 1; i++)
+	{
+		printf("%d:", arr2[i]);
+		my_list = delete_at(my_list, arr2[i], &free);
 		my_print(my_list);
 	}
 
