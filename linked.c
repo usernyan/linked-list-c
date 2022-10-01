@@ -66,7 +66,7 @@ void del_list(struct link_node *head, void (*deinitializer)(void *)) {
 }
 
 /*
- * list printing functions
+ * list-printing functions
  */
 
 void print_list(struct link_node *head, void (*printer)(void *)) {
