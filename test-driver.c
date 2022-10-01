@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
 	int arr_l = 5;
 	for (int i = 0; i < arr_l; i++) {
 		printf("%d:", arr[i]);
-		my_list = insert_at(my_list, new_int(i+5), arr[i]);
+		my_list = insert_at(my_list, arr[i], new_int(i+5));
 		my_print(my_list);
 	}
 
@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
 	for (int i = 0; i < arr2_l; i++)
 	{
 		printf("%d:", arr2[i]);
-		my_list = insert_at(my_list, new_int(i), arr2[i]);
+		my_list = insert_at(my_list, arr2[i], new_int(i));
 		my_print(my_list);
 	}
 	puts("delete_at to null");
