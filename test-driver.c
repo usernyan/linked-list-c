@@ -11,6 +11,7 @@ bool int_eq(void *data1, void *data2);
 void int_list_tester(struct link_node *list_head);
 int *new_int(int val);
 void my_print(struct link_node *head);
+void retrieval_test(struct link_node *l, int begin_at, int end_at);
 
 int main(int argc, char *argv[]) {
 	printf("Hello, test.\n");
@@ -67,6 +68,8 @@ int main(int argc, char *argv[]) {
 		my_print(my_list);
 	}
 
+	retrieval_test(my_list, -1, 5);
+
 	puts("delete_first");
 	my_print(my_list);
 	for(int i = 0; i < 5; i++) {
@@ -74,8 +77,26 @@ int main(int argc, char *argv[]) {
 		my_print(my_list);
 	}
 
+	retrieval_test(my_list, 0, 1);
+
 	del_list(my_list, &free);
 	return 0;
+}
+
+void retrieval_test(struct link_node *l, int begin_at, int end_at) {
+	puts("get_first");
+	print_int(get_first(l));
+	printf("\n");
+
+	puts("get_last");
+	print_int(get_last(l));
+	printf("\n");
+
+	for (int i = begin_at; i < end_at; i++) {
+		printf("%d:", i);
+		print_int(get_at(l, i));
+		printf("\n");
+	}
 }
 
 void int_list_tester(struct link_node *list_head) {
@@ -105,7 +126,10 @@ void *init_int(void *to_data) {
 }
 
 void print_int(void *data) {
-	printf("%d", *(int *)data);
+	if (data)
+		printf("%d", *(int *)data);
+	else
+		printf("null data ptr");
 }
 
 void my_print(struct link_node *head) {
