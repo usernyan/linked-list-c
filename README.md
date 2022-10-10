@@ -23,7 +23,7 @@ void *alloc_int(void *to_data) {
 ```
 
 Functions that might change which node is the head of the list return the new head.
-For example, insert\_first and other functions that add or remove nodes should be used list so:
+For example, insert\_first and other functions that add or remove nodes should be used like so:
 ```c
 #include <stdlib.h>
 void main() {
