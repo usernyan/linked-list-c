@@ -8,9 +8,10 @@ The library relies on the user to provide functions for allocating and deallocat
 The user can create and delete a list of ints like so:
 ```c
 #include <stdlib.h>
+#include <linked.h>
 void main() {
 	int list_length = 3;
-	l = new_list(list_length, &alloc_int);
+	struct link_node l = new_list(list_length, &alloc_int);
 	del_list(l, &free);
 }
 
@@ -26,8 +27,9 @@ Functions that might change which node is the head of the list return the new he
 For example, insert\_first and other functions that add or remove nodes should be used like so:
 ```c
 #include <stdlib.h>
+#include <linked.h>
 void main() {
-	l = new_list(0, &alloc_int); //returns NULL
+	struct link_node l = new_list(0, &alloc_int); //returns NULL
 	l = insert_first(l, func_that_returns_ptr_to_data()); //returns the inserted node
 }
 
