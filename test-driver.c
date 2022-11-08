@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
 	my_print(my_list);
 	del_list(my_list, &free);
 
+	//Functions that might change which node is the head of the list return the new head.
 	my_list = new_list(0, &init_int);
 	puts("insert_first");
 	my_print(my_list);
